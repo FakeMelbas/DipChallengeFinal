@@ -58,11 +58,11 @@ namespace DipChallengeFinal
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "756630702522-6bc1s7cuqsd7be1gii9n8ibvbfb89sap.apps.googleusercontent.com",
+                ClientSecret = "_tFpFFz3jh1Sb7dAlOU_YBM0"
+			});
         }
     }
 }
