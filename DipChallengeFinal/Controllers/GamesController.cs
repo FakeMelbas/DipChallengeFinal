@@ -75,6 +75,7 @@ namespace DipChallengeFinal.Controllers
         {
             if (ModelState.IsValid)
             {
+				game.WhoPaid.ToLower();
                 db.Games.Add(game);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

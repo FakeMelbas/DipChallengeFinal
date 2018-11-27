@@ -8,7 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    
 </p>
 <table class="table">
     <tr>
@@ -40,18 +40,33 @@
 			@Html.DisplayFor(modelItem => item.EmailConfirmed)
 		</td>
 		<td>
-			@Html.DisplayFor(modelItem => item.UserRoles)
+			@*@Html.DisplayFor(modelItem => item.UserRoles)*@
+			@if (item.UserRoles == 3)
+			{
+				<i>Unapproved User</i>
+			}
+			else if (item.UserRoles == 2)
+			{
+				<i>Approved User</i>
+			}
+			else if (item.UserRoles == 1)
+			{
+				<i>Big Bad Boss</i>
+			}
 		</td>
 
 		<td>
 			@{ decimal? totalSpent = 0;}
 			@foreach (Game g in Model.Games)
 			{
-				if (g.WhoPaid == item.Email)
-				{
-					totalSpent += g.CourtFee;
+				if (g.WhoPaid == null)
+				{ continue; }
+					if (g.WhoPaid.ToLower() == item.Email.ToLower())
+					{
+
+						totalSpent += g.CourtFee;
+					}
 				}
-			}
 			@totalSpent
 		</td>
 		<td>
